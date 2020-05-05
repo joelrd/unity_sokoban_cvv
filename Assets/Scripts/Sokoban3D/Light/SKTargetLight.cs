@@ -8,8 +8,8 @@ public class SKTargetLight : MonoBehaviour
 {
     public Color activatedColor = Color.green;
     public Color deactivatedColor = Color.yellow;
-    private bool _status;
-    private Renderer targetRenderer;
+    public bool _status;
+    public Renderer targetRenderer;
     // Start is called before the first frame update
     private void Start()
     {

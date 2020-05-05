@@ -55,7 +55,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKBox.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKGameControl.cs" />
+     <Compile Include="Assets\Scripts\Sokoban3D\Full\SKLevel.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKPlayer.cs" />
+     <Compile Include="Assets\Scripts\Sokoban3D\Full\SKSmoothFollow.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKTarget.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKUtilities.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Light\SKBoxLight.cs" />
