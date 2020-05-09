@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Sokoban3D/Full/Main.unity
+    guid: d5fa896f046164544ad7deeb67a5e3a9
+  - enabled: 1
     path: Assets/Scenes/Sokoban3D/Full/Level-1.unity
     guid: 2945dfa06018848c1a1aa0e771717665
   - enabled: 1

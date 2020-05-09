@@ -67,36 +67,50 @@ public class SKLevel : MonoBehaviour
         SKGameControl.instance.LoadScene(this.nextLevelName);
     }
 
-    private IEnumerator InitGame ( ) {
+    private IEnumerator InitGame()
+    {
         _curX = 0;
         _curY = 0;
         _curZ = 0;
+
+        // Se registra SKLevel dentro de SKGameControl para que quede
+        // accesible a otras clases dentro de la escena
         SKGameControl.instance.levelmanager = this;
+
+        // Lectura del archivo
         string path = Application.dataPath + "/StreamingAssets/Sokoban/" + levelName + ".txt";
         StreamReader reader = new StreamReader(path);
         _levelload = reader.ReadToEnd();
         reader.Close();
-        foreach( char data in _levelload ) {
-            foreach(LevelElements element in elements) {
-                if( data == element.key ) {
+
+        foreach(char data in _levelload)
+        {
+            foreach(LevelElements element in elements)
+            {
+                if(data == element.key)
+                {
                     GameObject temp = Instantiate(element.prefab);
                     temp.name = element.name;
                     temp.transform.position = new Vector3(_curX, _curY, _curZ);
                     _curX++;
-
                 }
             }
-            if ( data == '-' ) {
+
+            // Espacio en blanco
+            if (data == '-')
+            {
                 _curX++;
             }
 
-            if (data == ',') {
+            // Salto de linea
+            if (data == ',')
+            {
                 _curZ--;
                 _curX = 0;
             }
-            yield return new WaitForEndOfFrame();
-            _targets = SKGameControl.instance.GetTargets();
-            _gameStart = true;
         }
+        yield return new WaitForEndOfFrame();
+        _targets = SKGameControl.instance.GetTargets();
+        _gameStart = true;
     }
 }
