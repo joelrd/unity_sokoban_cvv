@@ -10,19 +10,26 @@ public class MainMenu : MonoBehaviour
     private Sound_Handler _sound;
 
     void Awake() {
-        _sound = Sound_Handler.instance;
-        _sound.playsound(1);
+        this.PlaySound(1);
     }
 
     public void PlayGame() {
+        this.PlaySound(2);
         SceneManager.LoadScene("Level-1");
     }
 
     public void QuitGame() {
+        this.PlaySound(2);
         Application.Quit();
     }
 
     public void ContinueGame() {
+        this.PlaySound(2);
         SceneManager.LoadScene("Level-1");
+    }
+
+    public void PlaySound(int index) {
+        _sound = Sound_Handler.instance;
+        _sound.playsound(index);
     }
 }
