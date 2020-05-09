@@ -83,19 +83,20 @@ public class SKLevel : MonoBehaviour
                     temp.name = element.name;
                     temp.transform.position = new Vector3(_curX, _curY, _curZ);
                     _curX++;
-                    if ( data == '-' ) {
-                        _curX++;
-                    }
 
-                    if (data == ',') {
-                        _curZ--;
-                        _curX = 0;
-                    }
-                    yield return new WaitForEndOfFrame();
-                    _targets = SKGameControl.instance.GetTargets();
-                    _gameStart = true;
                 }
             }
+            if ( data == '-' ) {
+                _curX++;
+            }
+
+            if (data == ',') {
+                _curZ--;
+                _curX = 0;
+            }
+            yield return new WaitForEndOfFrame();
+            _targets = SKGameControl.instance.GetTargets();
+            _gameStart = true;
         }
     }
 }

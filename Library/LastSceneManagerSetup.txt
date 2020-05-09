@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Sokoban3D/Light/PlayerAndBoxAndTarget.unity
+- path: Assets/Scenes/Sokoban3D/Full/Level-1.unity
   isLoaded: 1
   isActive: 1
