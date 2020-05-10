@@ -29,7 +29,9 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlaySound(int index) {
-        _sound = Sound_Handler.instance;
-        _sound.playsound(index);
+        if (_sound != null) {
+            _sound = Sound_Handler.instance;
+            _sound.playsound(index);
+        }
     }
 }

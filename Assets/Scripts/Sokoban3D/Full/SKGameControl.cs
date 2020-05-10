@@ -12,15 +12,25 @@ public class SKGameControl : MonoBehaviour
     private float _activePlayTime;
     private List<SKTarget> targets;
     private SKLevel _level;
+    private Sound_Handler _sound;
 
     void Awake ( ) {
         if(SKGameControl.instance == null) {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             targets = new List<SKTarget>();
+            if (_sound == null) {
+                _sound = Sound_Handler.instance;
+            }
         }
         else {
             Destroy(this.gameObject);
+        }
+    }
+
+    void Update() {
+        if (_sound != null) {
+            _sound.playsound(0);
         }
     }
 

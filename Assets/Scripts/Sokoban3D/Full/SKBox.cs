@@ -7,19 +7,24 @@ namespace UnedSokoban {}
 public class SKBox : SKBoxLight
 {
     private SKLevel _level;
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        transform.hasChanged = false;
+        audioSource = GetComponent<AudioSource>();
         _level = SKGameControl.instance.levelmanager;
         this.gameObject.transform.parent.name = "Ground";
         this.gameObject.name = "Box";
         this.gameObject.transform.parent = null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+    void Update() {
+        if (transform.hasChanged && !audioSource.isPlaying) {
+            audioSource.Play();
+            transform.hasChanged = false;
+        }
     }
 
     new public bool MoveBox( Vector3 direction, float stepDistance ) {

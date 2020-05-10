@@ -7,9 +7,7 @@ namespace UnedSokoban {}
 public enum SoundType
 {
     none = -1,
-    cambiarEscena = 0,
-    utilizarLlave = 1,
-    salto = 2,
+    box = 1,
 };
 // Declaración de la clase
 public class Sound_Handler : MonoBehaviour {
@@ -31,13 +29,13 @@ public class Sound_Handler : MonoBehaviour {
     }
     // Método público para reproducir sonido
     public void playsound(int indexOfSound) {
-        if(!speaker1.isPlaying) {
+        if(speaker1 != null && !speaker1.isPlaying) {
             speaker1.PlayOneShot(sounds[indexOfSound]);
         }
-        else if(!speaker2.isPlaying) {
+        else if(speaker2 != null && !speaker2.isPlaying) {
             speaker2.PlayOneShot(sounds[indexOfSound]);
         }
-        else if(!speaker3.isPlaying) {
+        else if(speaker3 != null && !speaker3.isPlaying) {
             speaker3.PlayOneShot(sounds[indexOfSound]);
         }
     }
