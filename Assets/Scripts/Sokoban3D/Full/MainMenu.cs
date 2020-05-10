@@ -7,31 +7,29 @@ namespace UnedSokoban {}
 
 public class MainMenu : MonoBehaviour
 {
-    private Sound_Handler _sound;
+    public AudioSource audioSource;
+    private AudioSource[] allAudioSources;
 
     void Awake() {
-        this.PlaySound(1);
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach(AudioSource audioS in allAudioSources) {
+            audioS.Stop();
+        }
+        audioSource = GetComponent<AudioSource>();
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
     }
 
     public void PlayGame() {
-        this.PlaySound(2);
         SceneManager.LoadScene("Level-1");
     }
 
     public void QuitGame() {
-        this.PlaySound(2);
         Application.Quit();
     }
 
     public void ContinueGame() {
-        this.PlaySound(2);
         SceneManager.LoadScene("Level-1");
-    }
-
-    public void PlaySound(int index) {
-        if (_sound != null) {
-            _sound = Sound_Handler.instance;
-            _sound.playsound(index);
-        }
     }
 }

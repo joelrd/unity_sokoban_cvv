@@ -21,7 +21,7 @@ public class SKBox : SKBoxLight
     }
 
     void Update() {
-        if (transform.hasChanged && !audioSource.isPlaying) {
+        if (transform != null && transform.hasChanged && !audioSource.isPlaying) {
             audioSource.Play();
             transform.hasChanged = false;
         }

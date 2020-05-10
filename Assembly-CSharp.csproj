@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Sokoban3D\Full\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Sokoban3D\Full\Pause.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKBox.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKGameControl.cs" />
      <Compile Include="Assets\Scripts\Sokoban3D\Full\SKLevel.cs" />
