@@ -28,6 +28,7 @@ public class Pause : MonoBehaviour
          {
              var rect = new Rect((Screen.width)/2, (Screen.height)/2, 200, 50);
              if(GUI.Button(rect, "Exit")) {
+                Destroy(this);
                 paused = togglePause();
                 SceneManager.LoadScene("Main");
 

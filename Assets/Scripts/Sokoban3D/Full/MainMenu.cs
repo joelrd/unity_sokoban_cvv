@@ -9,11 +9,15 @@ public class MainMenu : MonoBehaviour
 {
     public AudioSource audioSource;
     private AudioSource[] allAudioSources;
+    private string _level;
 
     void Awake() {
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
         foreach(AudioSource audioS in allAudioSources) {
             audioS.Stop();
+        }
+        if(SKGameControl.instance != null){
+            Destroy(SKGameControl.instance);
         }
         audioSource = GetComponent<AudioSource>();
         if (!audioSource.isPlaying) {
@@ -22,6 +26,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame() {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Level-1");
     }
 
@@ -30,6 +35,10 @@ public class MainMenu : MonoBehaviour
     }
 
     public void ContinueGame() {
-        SceneManager.LoadScene("Level-1");
+        _level = PlayerPrefs.GetString("Level");
+        if (string.IsNullOrEmpty(_level)) {
+            _level = "Level-1";
+        }
+        SceneManager.LoadScene(_level);
     }
 }

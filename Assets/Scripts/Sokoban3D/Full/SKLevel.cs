@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 namespace UnedSokoban { }
 
@@ -32,6 +33,7 @@ public class SKLevel : MonoBehaviour
         _gameStart = false;
         _gameDone = false;
         StartCoroutine(InitGame());
+        PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
